@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.demo.customdocumentscanner">
+
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <queries>
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE"/>
+        </intent>
+    </queries>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:requestLegacyExternalStorage="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".DocumentScannerActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_document_scanner"
+            android:screenOrientation="portrait"
+            android:theme="@style/FullscreenTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".CropReceiptActivity"
+            android:noHistory="true"
+            android:screenOrientation="portrait"/>
+        <!-- todo 5: Add provider to AndroidManifest.xml -->
+        <activity android:name=".CropScreen"
+            android:noHistory="true"
+            android:screenOrientation="portrait"/>
+        <provider
+            android:name=".data.TextProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            android:multiprocess="true"
+            android:syncable="true" />
+        <activity android:name=".ImageCropActivity"/>
+
+    </application>
+
+</manifest>

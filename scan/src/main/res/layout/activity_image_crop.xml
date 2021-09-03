@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rlContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".ImageCropActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000"
+        android:orientation="vertical"
+        android:weightSum="10"
+        tools:context=".ImageCropActivity">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.8"
+            android:background="#ffffff">
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_left_arrow" />
+            <TextView
+                android:id="@+id/btnClose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/iv_back"
+                android:fontFamily="@font/sourcesanspro_regular"
+                android:text="Back"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:foreground="?android:selectableItemBackground"
+                android:padding="5dp"
+                android:src="@drawable/ic_align"
+                android:text="Edit Scan"
+                android:textSize="16sp"
+                android:fontFamily="@font/sourcesanspro_semi_bold"
+                android:textColor="@color/black" />
+            <ImageView
+                android:id="@+id/ivRebase"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:foreground="?android:selectableItemBackground"
+                android:padding="5dp"
+                android:src="@drawable/ic_align"
+                android:visibility="invisible" />
+            <TextView
+                android:id="@+id/btnImageCrop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="5dp"
+                android:text="Next"
+                android:fontFamily="@font/sourcesanspro_regular"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+            <ImageView
+                android:id="@+id/ivInvert"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:foreground="?android:selectableItemBackground"
+                android:padding="5dp"
+                android:src="@drawable/ic_invert_colors"
+                android:visibility="gone" />
+        </RelativeLayout>
+        <FrameLayout
+            android:id="@+id/frameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:layout_weight="8">
+            <FrameLayout
+                android:id="@+id/holderImageCrop"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="10dp">
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:adjustViewBounds="true" />
+            </FrameLayout>
+            <com.demo.customdocumentscanner.base.libraries.PolygonView
+                android:id="@+id/polygonView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:visibility="gone" />
+        </FrameLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1.2">
+            <!-- <Button
+                 android:id="@+id/btnImageCrop"
+                 android:layout_width="wrap_content"
+                 android:layout_height="50dp"
+                 android:layout_alignParentEnd="true"
+                 android:foreground="?android:selectableItemBackground"
+                 android:minWidth="150dp"
+                 android:shadowRadius="10"
+                 android:textColor="#ffffff" />-->
+            <ImageView
+                android:id="@+id/ivRotate"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:foreground="?android:selectableItemBackground"
+                android:padding="10dp"
+                android:src="@drawable/ic_rotate_right" />
+            <!-- <Button
+                 android:layout_width="wrap_content"
+                 android:layout_height="50dp"
+                 android:layout_alignParentStart="true"
+                 android:foreground="?android:selectableItemBackground"
+                 android:minWidth="150dp"
+                 android:visibility="invisible"
+                 android:shadowRadius="10"
+                 android:textColor="#ffffff" />-->
+        </RelativeLayout>
+    </LinearLayout>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/halfTransparentBackground"
+        android:padding="100dp" />
+
+</RelativeLayout>
